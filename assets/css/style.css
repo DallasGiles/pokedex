@@ -1,71 +1,72 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
-header{
-    justify-content: center;
-    text-align: center;
-    padding: 30px;
-    background-color: forestgreen;
-    color: black;
+header {
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  background-color: forestgreen;
+  color: black;
 }
 .topnav {
-    position: relative;
-    background-color: #232323;
-    overflow: hidden;
-  }
-  .topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  .topnav a:hover {
-    background-color: #345345;
-    color: fuchsia;
-  }
-  .topnav a.active {
-    background-color: #04AA6D;
-    color: white;
-  }
-  
-  .topnav-centered a {
-    float: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .topnav-right {
-    float: right;
-  }
-.search-center{
-    text-align: center;
-    padding: 25px;
+  position: relative;
+  background-color: #232323;
+  overflow: hidden;
 }
-input[type=text]{
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-     border-radius: 20px;
-     border: 1px solid #2d9fd9;
-     color: #a0d18c;
-     width: 250px;
-     height: 30px;
-     padding-left: 10px;
-    }
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.topnav a:hover {
+  background-color: #345345;
+  color: fuchsia;
+}
+.topnav a.active {
+  background-color: #04aa6d;
+  color: white;
+}
 
-  @media screen and (max-width: 600px) {
-    .topnav a, .topnav-right {
-      float: none;
-      display: block;
-    }
-  
-    .topnav-centered a {
-      position: relative;
-      top: 0;
-      left: 0;
-      transform: none;
-    }
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.topnav-right {
+  float: right;
+}
+.search-center {
+  text-align: center;
+  padding: 25px;
+}
+input[type="text"] {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  border: 1px solid #2d9fd9;
+  color: #a0d18c;
+  width: 250px;
+  height: 30px;
+  padding-left: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a,
+  .topnav-right {
+    float: none;
+    display: block;
   }
+
+  .topnav-centered a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+}

@@ -83,9 +83,9 @@ nav ul li a {
 }
 /* Styles for the favorites list */
 .favorites-list {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    margin: 10rem 5rem;
-    color: black;
-  }
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin: 10rem 5rem;
+  color: black;
+}
