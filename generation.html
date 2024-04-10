@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <link rel="stylesheet" href="./assets/css/button.css">
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="./assets/css/generation.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <title>generations</title>
 </head>
 
@@ -117,9 +117,8 @@
 
   <div>
     <button id="toggleFavButton">
-      <img style="width:20px;height:20px" id="defaultImage" src="./assets/images/starNoFav.png" alt="Default Image">
-      <img style="width:20px;height:20px" id="clickedImage" src="./assets/images/starFav.png" alt="Clicked Image"
-        style="display: none;">
+      <img class="visible" style="width:20px;height:20px" id="defaultImage" src="./assets/images/starNoFav.png" alt="Default Image">
+      <img class="hidden" style="width:20px;height:20px" id="clickedImage" src="./assets/images/starFav.png" alt="Clicked Image">
     </button>
   </div>
 
