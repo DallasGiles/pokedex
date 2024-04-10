@@ -1,8 +1,9 @@
+/* Universal style for the page*/
 * {
   margin: 0;
   padding: 0;
 }
-
+/* Styles for the header */
 header {
   justify-content: center;
   align-items: center;
@@ -16,6 +17,11 @@ h1 {
   color: black;
 }
 
+h1 a {
+  color: black;
+  text-decoration: none;
+}
+/* Styles for the navigation bar */
 nav ul li a {
   padding: 14px 16px;
   display: flex;
@@ -30,6 +36,7 @@ nav ul li a {
 .left {
   float: none;
 }
+/* Styles for the search bar */
 .wrapper {
   width: 100%;
   max-width: 31.25rem;
@@ -74,7 +81,7 @@ nav ul li a {
 #searchSubmit:hover {
   cursor: pointer;
 }
-
+/* Styles for the favorites list */
 .favorites-list {
     display: flex;
     text-align: center;
