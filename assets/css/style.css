@@ -1,13 +1,13 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
-header{
-    justify-content: center;
-    text-align: center;
-    padding: 30px;
-    background-color: forestgreen;
-    color: black;
+header {
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  background-color: forestgreen;
+  color: black;
 }
 .topnav {
     position: relative;
