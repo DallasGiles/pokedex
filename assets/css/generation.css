@@ -27,7 +27,9 @@ html {
   padding: 100px 20px;
   height: 100%;
 }
-
+#grad {
+  background-image: linear-gradient(to right, red , yellow);
+}
 #gen-1 {
   background-color: red;
 }
