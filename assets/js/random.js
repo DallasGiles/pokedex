@@ -1,20 +1,13 @@
-function getRandomPokemon(arr) {
-    const randomIndex = Math.floor(Math.random() * arr.length);
+const pokemon = ['Pokemon1', 'Pokemon2', 'Pokemon3'];
+const getPokemon = document.getElementById("get-pokemon");
 
-    const item= arr[randomIndex];
-
-    return item;
+getPokemon.onclick = function() {
+    document.getElementById("get-pokemon-result").innerText = getRandomPokemon(pokemon);
 }
 
-const pokemon = ['Pokemon1', 'Pokemon2', 'Pokemon3'];
+function getRandomPokemon(arr) {
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    const item = arr[randomIndex];
 
-const result= getRandomPokemon(pokemon);
-console.log(result)
-
-const button = document.getElementById("button");
-var randomIndex = pokemon [Math.random() * pokemon.length | 0]
-
-button.onclick = function() {
-    randomIndex = [Math.random()* pokemon.length |  0]
-    document.getElementsByClassName('text')[0]  = randomIndex
+    return item;
 }
