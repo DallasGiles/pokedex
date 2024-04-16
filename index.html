@@ -10,7 +10,7 @@
   <title>Pokedex</title>
 </head>
 
-<body>
+<body id="grad">
   <header>
     <h1>Pokedex</h1>
   </header>
@@ -18,14 +18,19 @@
 
     <div class="topnav-centered">
       <a href="index.html">Home</a>
+      <a href="index.html">Home</a>
     </div>
 
+    <a href="generation.html">Generations</a>
     <a href="generation.html">Generations</a>
 
     <div class="topnav-right">
       <a href="favorite.html">Favorites</a>
+      <a href="favorite.html">Favorites</a>
     </div>
   </div>
+
+<div class="sprite-div">
   <div class="wrapper">
     <div class="label">Search for your pokemon here</div>
     <div class="searchBar">
@@ -38,9 +43,9 @@
       </button>
     </div>
   </div>
-  <div class="sprite-div">
-    <input type="text" id="pokemonName" placeholder="Enter Pokemon Name">
-    <button onclick="fetchData()">Get Pokemon</button><br>
+<div class="sprite-div">
+  <input type="text" id="pokemonName" placeholder="Enter Pokemon Name">
+  <button id="get-pokemon" onclick="fetchData()">Get Pokemon</button><div id="get-pokemon-result"></div><br>
 
     <img src="" alt="" id="pokemonSprite" style="display:block">
   </div>
@@ -59,6 +64,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
   <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/random.js"></script>
 </body>
 
 </html>
