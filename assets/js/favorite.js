@@ -82,5 +82,5 @@ const toggleFavButton = document.getElementById("toggleFavButton");
   }
 }
 
-// where would I put the code to remove the pokemon when unfavorited?
+// where would I put the code to remove the pokemon when unfavorited?^line76^
 //
