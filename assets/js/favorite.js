@@ -20,14 +20,11 @@ async function fetchPokemonData(pokemonName) {
       // Local variable to store the response data so it can be extracted
       const pokemonData = await response.json();
 
-      // Fetch Pokémon stats
-      const statsResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
-      // If the response is not ok, throw an error
-      if (!statsResponse.ok) {
-          throw new Error("Could not fetch Pokémon stats");
-      }
       // Local variable to store the response data so it can be extracted
-      const statsData = await statsResponse.json();
+      const statsData = pokemonData.stats;
+
+      console.log(statsData);
+      console.log(pokemonData);
 
 // Create a card element
 const pokeCard = document.createElement("div");
@@ -47,9 +44,9 @@ pokeCard.innerHTML = `
     <p>Type: ${pokemonData.types.map(type => type.type.name).join('/')}</p>
     <p>Generation: 1</p>
     <p>ID: ${pokemonData.id.toString().padStart(3, '0')}</p>
-    <button id="toggleFavButton" class="hidden">
-        <img class="visible" style="width:20px;height:20px" id="defaultImage" src="./assets/images/starNoFav.png" alt="Default Image">
-        <img class="hidden" style="width:20px;height:20px" id="clickedImage" src="./assets/images/starFav.png" alt="Clicked Image">
+    <ul id="statsList"></ul>
+    <button id="toggleFavButton">
+        <img class="visible" style="width:20px;height:20px" id="defaultImage" src="./assets/images/starFav.png" alt="Default Image">
     </button>
 `;
 
@@ -66,7 +63,7 @@ pokeCard.appendChild(imgElement);
 
 // Display Pokémon stats
 const statsList = document.getElementById("statsList");
-statsData.stats.forEach(stat => {
+statsData.forEach(stat => {
     const statItem = document.createElement("li");
     statItem.textContent = `${stat.stat.name}: ${stat.base_stat}`;
     statsList.appendChild(statItem);
@@ -74,14 +71,16 @@ statsData.stats.forEach(stat => {
 
 // Toggle button visibility based on the favorite button's class
 const toggleFavButton = document.getElementById("toggleFavButton");
-if (toggleFavButton) {
-    toggleFavButton.classList.toggle("visible");
-    toggleFavButton.classList.toggle("hidden");
-}
-
+    toggleFavButton.addEventListener("click", function() {
+        toggleFavButton.children[0].src = toggleFavButton.children[0].src.split("/")[toggleFavButton.children[0].src.split("/").length - 1] === 'starFav.png' ? "./assets/images/starNoFav.png" : "./assets/images/starFav.png";
+        // Build an if statement to check if the image is the favorite image or not and if it is not favorited then remove the pokemon
+    });
 
 
   } catch (error) {
       console.error("Error fetching Pokémon data:", error);
   }
 }
+
+// where would I put the code to remove the pokemon when unfavorited?
+//
