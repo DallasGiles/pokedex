@@ -39,22 +39,19 @@
   </div>
 <div class="sprite-div">
   <input type="text" id="pokemonName" placeholder="Enter Pokemon Name">
-  <button id="get-pokemon" onclick="fetchData()">Get Pokemon</button><div id="get-pokemon-result"></div><br>
-
   <img src="" alt="" id="pokemonSprite" style="display:block">
 </div>
 
 <div class="random-div">
 <h2>
-  Pokemon randomizer
+  Pokemon Randomizer
 </h2>
-<button class="randomButton">Randomize</button>
-<p> Get a random pokemon here:</p>
-<hr class="solid">
-<div class="randomizer">
-</div>
-</div>
-
+<button id="get-pokemon" class="randomButton">Randomize</button>
+  <p> Get a random pokemon here:</p>
+    <hr class="solid">
+  <div class="randomizer hidden" id="get-pokemon-result"><img src="" width="10">
+  </div>
+  </div>
 
   <script src="./assets/js/script.js"></script>
   <script src="./assets/js/random.js"></script>
