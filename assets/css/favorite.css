@@ -84,6 +84,12 @@ nav {
   display: flex;
   text-align: center;
   justify-content: center;
-  margin: 6rem 1rem;
+  margin: 2rem 1rem;
   color: black;
+}
+
+.clearbtn {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
 }
