@@ -46,7 +46,7 @@ pokeCard.innerHTML = `
     <p>ID: ${pokemonData.id.toString().padStart(3, '0')}</p>
     <ul id="stats${pokemonData.id}"></ul>
     <button id="toggleFavButton">
-        <img class="visible" style="width:20px;height:20px" id="defaultImage" src="./assets/images/starFav.png" alt="Default Image">
+        <img class="visible" style="width:20px;height:20px" id="defaultImage" src="./assets/images/starNoFav.png" alt="Default Image">
     </button>
 `;
 
@@ -70,6 +70,10 @@ statsData.forEach(stat => {
     statsList.appendChild(statItem);
 });
 
+
+//filter from id and remove from local storage
+// when page load look for data and look for page load after click when faved or unfaved itll push to array and save it to local storage again 
+// look up method and refer to weather app for reference
 // Function to remove the Pokemon data
 function removePokemon(pokemonData) {
     // Get the locally stored Pokemon data
