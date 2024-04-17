@@ -3,7 +3,7 @@ const searchSubmitButton = document.getElementById("searchSubmit");
 // If the search button has an event listener, make the search buttons accept lowercase and fetch the pokemon data
 if (searchSubmitButton) {
   searchSubmitButton.addEventListener("click", function() {
-      const pokemonName = document.getElementById("searchInput").value.toLowerCase();
+       const pokemonName = document.getElementById("searchInput").value.toLowerCase();
       fetchPokemonData(pokemonName);
   });
 }
