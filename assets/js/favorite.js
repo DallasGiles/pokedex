@@ -2,14 +2,17 @@
 const searchSubmitButton = document.getElementById("searchSubmit");
 // If the search button has an event listener, make the search buttons accept lowercase and fetch the pokemon data
 if (searchSubmitButton) {
-  searchSubmitButton.addEventListener("click", function() {
-       const pokemonName = document.getElementById("searchInput").value.toLowerCase();
-      fetchPokemonData(pokemonName);
+  searchSubmitButton.addEventListener("click", function () {
+    const pokemonName = document
+      .getElementById("searchInput")
+      .value.toLowerCase();
+    fetchPokemonData(pokemonName);
   });
 }
 
 // Define the combined fetch function
-async function fetchPokemonData(pokemonName) {
+// Define the combined fetch function
+async function fetchPokemonData(pokemonName, isFavorited) {
   try {
     // Fetch Pokémon details
     const response = await fetch(
@@ -39,19 +42,20 @@ async function fetchPokemonData(pokemonName) {
 
     pokeCard.id = `pokemonCard${pokemonData.id}`;
 
+    // Determine the toggle button icon based on isFavorited
+    const toggleButtonIcon = isFavorited ? "starFav.png" : "starNoFav.png";
+
     // HTML content for the card, including the toggle button
     pokeCard.innerHTML = `
-          <p>Name: ${pokemonData.name}</p>
-          <p>Type: ${pokemonData.types
-            .map((type) => type.type.name)
-            .join("/")}</p>
-          <p>Generation: 1</p>
-          <p>ID: ${pokemonData.id.toString().padStart(3, "0")}</p>
-          <ul id="stats${pokemonData.id}"></ul>
-          <button id="toggleFavButton_${pokemonData.id}">
-              <img class="visible" style="width:20px;height:20px" id="defaultImage" src="./assets/images/starNoFav.png" alt="Default Image">
-          </button>
-      `;
+<p>Name: ${pokemonData.name}</p>
+<p>Type: ${pokemonData.types.map((type) => type.type.name).join("/")}</p>
+<p>Generation: 1</p>
+<p>ID: ${pokemonData.id.toString().padStart(3, "0")}</p>
+<ul id="stats${pokemonData.id}"></ul>
+<button id="toggleFavButton_${pokemonData.id}">
+    <img class="visible" style="width:20px;height:20px" id="defaultImage" src="./assets/images/${toggleButtonIcon}" alt="Default Image">
+</button>
+`;
 
     // Append the card to a container
     const cardContainer = document.getElementById("pokemonCardContainer");
@@ -80,31 +84,36 @@ async function fetchPokemonData(pokemonName) {
   }
 }
 
+
 // The function to handle the toggle button click event to favorite a Pokémon
 function handleToggleButton(event) {
-    console.log("Toggle button clicked"); // Add this line
-    const toggleButton = event.target.closest("[id^='toggleFavButton']");
-    if (toggleButton) {
-        const pokemonId = toggleButton.id.replace("toggleFavButton_", "");
-        const imgElement = toggleButton.querySelector("img");
-        console.log("imgElement:", imgElement); // Add this line
+  const toggleButton = event.target.closest("[id^='toggleFavButton']");
+  if (toggleButton) {
+    const pokemonId = toggleButton.id.replace("toggleFavButton_", "");
+    const imgElement = toggleButton.querySelector("img");
 
-        let savedPokemon = JSON.parse(localStorage.getItem("savedPokemon")) || [];
-        const isFavorited = savedPokemon.some(pokemon => pokemon.id === parseInt(pokemonId));
+    let savedPokemon = JSON.parse(localStorage.getItem("savedPokemon")) || [];
+    const isFavorited = savedPokemon.some(
+      (pokemon) => pokemon.id === parseInt(pokemonId)
+    );
 
-        if (!isFavorited) {
-            const pokemonData = JSON.parse(localStorage.getItem(`pokemon_${pokemonId}`));
-            savedPokemon.push(pokemonData);
-            imgElement.src = "./assets/images/starFav.png"; // Change the image source to starFav
-        } else {
-            savedPokemon = savedPokemon.filter(pokemon => pokemon.id !== parseInt(pokemonId));
-        }
-
-        localStorage.setItem("savedPokemon", JSON.stringify(savedPokemon));
-        displaySavedPokemon(savedPokemon);
+    if (!isFavorited) {
+      const pokemonData = JSON.parse(
+        localStorage.getItem(`pokemon_${pokemonId}`)
+      );
+      savedPokemon.push({ ...pokemonData, isFavorited: true }); // Save favorited status
+      imgElement.src = "./assets/images/starFav.png";
+    } else {
+      savedPokemon = savedPokemon.filter(
+        (pokemon) => pokemon.id !== parseInt(pokemonId)
+      );
+      imgElement.src = "./assets/images/starNoFav.png";
     }
-}
 
+    localStorage.setItem("savedPokemon", JSON.stringify(savedPokemon));
+    displaySavedPokemon(savedPokemon);
+  }
+}
 
 // Attach event listener to the card container using event delegation
 const cardContainer = document.getElementById("pokemonCardContainer");
@@ -116,7 +125,6 @@ function savedPokemon(pokemonData) {
   localStorage.setItem("savedPokemon", JSON.stringify(savedPokemon));
 }
 
-// Add event listener to the clearList button
 // Add event listener to the clearList button
 const clearListButton = document.getElementById("clearList");
 if (clearListButton) {
@@ -137,45 +145,30 @@ if (clearListButton) {
     const cardContainer = document.getElementById("pokemonCardContainer");
     cardContainer.innerHTML = ""; // Clear all child elements
   });
-};
+}
 
 function displaySavedPokemon(savedPokemon) {
-    const cardContainer = document.getElementById("pokemonCardContainer");
+  const cardContainer = document.getElementById("pokemonCardContainer");
+  cardContainer.innerHTML = ""; // Clear existing cards
 
-    savedPokemon.forEach((pokemonData) => {
-        // Check if the card already exists before rendering it
-        const existingCard = document.getElementById(`pokemonCard${pokemonData.id}`);
-        if (!existingCard) {
-            // Call fetchPokemonData to display the saved Pokémon on the page
-            fetchPokemonData(pokemonData.name);
-        }
-    });
+  savedPokemon.forEach((pokemonData) => {
+    // Render each saved Pokemon
+    fetchPokemonData(pokemonData.name, pokemonData.isFavorited); // Pass isFavorited status
+  });
 }
-
 
 function renderSavedPokemon() {
-    // Retrieve saved Pokemon from local storage
-    const savedPokemon = JSON.parse(localStorage.getItem("savedPokemon")) || [];
+  // Retrieve saved Pokemon from local storage
+  const savedPokemon = JSON.parse(localStorage.getItem("savedPokemon")) || [];
 
-    // Loop through saved Pokemon and render their cards
-    savedPokemon.forEach((pokemonData) => {
-        const existingCard = document.getElementById(`pokemonCard${pokemonData.id}`);
-        if (existingCard) {
-            // Update the image source if the Pokémon is favorited
-            const toggleButton = existingCard.querySelector(`#toggleFavButton_${pokemonData.id}`);
-            if (toggleButton) {
-                const imgElement = toggleButton.querySelector("img");
-                if (imgElement) {
-                    imgElement.src = "./assets/images/starFav.png"; // Change the image source to starFav
-                }
-            }
-        } else {
-            // If the card doesn't exist, fetch and render the Pokémon data
-            fetchPokemonData(pokemonData.name);
-        }
-    });
+  // Loop through saved Pokemon and render their cards
+  savedPokemon.forEach((pokemonData) => {
+    const isFavorited = pokemonData.isFavorited; // Retrieve favorited status
+
+    // Render each saved Pokemon
+    fetchPokemonData(pokemonData.name, isFavorited); // Pass isFavorited status
+  });
 }
-
 
 // Add event listener to window load event
 window.addEventListener("load", renderSavedPokemon);
