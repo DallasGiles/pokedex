@@ -47,15 +47,15 @@ async function fetchPokemonData(pokemonName, isFavorited) {
 
     // HTML content for the card, including the toggle button
     pokeCard.innerHTML = `
-<p>Name: ${pokemonData.name}</p>
-<p>Type: ${pokemonData.types.map((type) => type.type.name).join("/")}</p>
-<p>Generation: 1</p>
-<p>ID: ${pokemonData.id.toString().padStart(3, "0")}</p>
-<ul id="stats${pokemonData.id}"></ul>
-<button id="toggleFavButton_${pokemonData.id}">
-    <img class="visible" style="width:20px;height:20px" id="defaultImage" src="./assets/images/${toggleButtonIcon}" alt="Default Image">
-</button>
-`;
+      <p>Name: ${pokemonData.name}</p>
+      <p>Type: ${pokemonData.types.map((type) => type.type.name).join("/")}</p>
+      <p>Generation: 1</p>
+      <p>ID: ${pokemonData.id.toString().padStart(3, "0")}</p>
+      <ul id="stats${pokemonData.id}"></ul>
+      <button id="toggleFavButton_${pokemonData.id}">
+          <img class="visible" style="width:20px;height:20px" id="defaultImage" src="./assets/images/${toggleButtonIcon}" alt="Default Image">
+      </button>
+    `;
 
     // Append the card to a container
     const cardContainer = document.getElementById("pokemonCardContainer");
@@ -147,16 +147,6 @@ if (clearListButton) {
   });
 }
 
-function displaySavedPokemon(savedPokemon) {
-  const cardContainer = document.getElementById("pokemonCardContainer");
-  cardContainer.innerHTML = ""; // Clear existing cards
-
-  savedPokemon.forEach((pokemonData) => {
-    // Render each saved Pokemon
-    fetchPokemonData(pokemonData.name, pokemonData.isFavorited); // Pass isFavorited status
-  });
-}
-
 function renderSavedPokemon() {
   // Retrieve saved Pokemon from local storage
   const savedPokemon = JSON.parse(localStorage.getItem("savedPokemon")) || [];
@@ -171,4 +161,7 @@ function renderSavedPokemon() {
 }
 
 // Add event listener to window load event
-window.addEventListener("load", renderSavedPokemon);
+window.addEventListener("load", function () {
+  // Render saved Pokemon on page load
+  renderSavedPokemon();
+});
