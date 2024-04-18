@@ -186,7 +186,8 @@ html {
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-image: linear-gradient(to right, #2E3192, #E4EfE9); /* Black*/
+ background-image: linear-gradient(to bottom, lightgrey, white); 
+   /*background-color: #1EAE98; */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -204,7 +205,7 @@ html {
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: darkgray;
 }
 
 /* Position and style the close button (top right corner) */
@@ -239,7 +240,7 @@ html {
   background-color: black;
   margin: 6px 0;
 }
-/* Styles for the favorites list */
+
 #pokemonCardContainer {
   display: flex;
   text-align: center;

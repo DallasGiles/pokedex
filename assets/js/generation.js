@@ -36,8 +36,8 @@ searchButtonSubmit.addEventListener("submit", function(event) {
     pokeCard1.style.display = "inline-block";
     pokeCard1.style.margin = "10px";
     pokeCard1.style.padding = "10px";
-    pokeCard1.style.backgroundImage = "linear-gradient(to right, #C33764, #E4EfE9)";
-    pokeCard1.style.border = "1px solid #ccc";
+    pokeCard1.style.backgroundImage = "linear-gradient(to right, #FFB6C1, #FFB6C1)";
+    pokeCard1.style.border = "2px solid #111";
     pokeCard1.style.borderRadius = "5px";
     pokeCard1.style.width = "200px";
     
