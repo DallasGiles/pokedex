@@ -27,17 +27,17 @@ html {
   padding: 100px 20px;
   height: 100%;
 }
-#grad {
-  background-image: linear-gradient(to right, red , yellow);
-}
+
 #gen-1 {
-  background-color: red;
+  background-image: linear-gradient(to right, #C6EA8D, #FE90AF);
 }
 #gen-2 {
   background-color: green;
+  background-image: linear-gradient(to right, #11998E , #38EF7D);
 }
 #gen-3 {
   background-color: blue;
+  background-image: linear-gradient(to right, #D8B5FF, #1EAE98);
 }
 
   .wrapper {
@@ -61,7 +61,7 @@ html {
     align-items: center;
   }
   
-  #searchInput {
+  #searchInput1 {
     width: 100%;
     height: 2.8rem;
     background: #f5f5f5;
@@ -70,9 +70,49 @@ html {
     border-radius: 1.625rem;
     padding: 0 3.5rem 0 1.5rem;
     font-size: 1rem;
+    color: #111;
+  }
+  #searchInput2 {
+    width: 100%;
+    height: 2.8rem;
+    background: #f5f5f5;
+    outline: none;
+    border: none;
+    border-radius: 1.625rem;
+    padding: 0 3.5rem 0 1.5rem;
+    font-size: 1rem;
+    color: #111;
+  }
+  #searchInput3 {
+    width: 100%;
+    height: 2.8rem;
+    background: #f5f5f5;
+    outline: none;
+    border: none;
+    border-radius: 1.625rem;
+    padding: 0 3.5rem 0 1.5rem;
+    font-size: 1rem;
+    color: #111;
   }
   
-  #searchSubmit {
+  
+  #searchSubmit1  {
+    width: 3.5rem;
+    height: 2.8rem;
+    margin-left: -3.5rem;
+    background: none;
+    border: none;
+    outline: none;
+  }
+  #searchSubmit2 {
+    width: 3.5rem;
+    height: 2.8rem;
+    margin-left: -3.5rem;
+    background: none;
+    border: none;
+    outline: none;
+  }
+  #searchSubmit3 {
     width: 3.5rem;
     height: 2.8rem;
     margin-left: -3.5rem;
@@ -81,7 +121,13 @@ html {
     outline: none;
   }
   
-  #searchSubmit:hover {
+  #searchSubmit1:hover {
+    cursor: pointer;
+  }
+  #searchSubmit2:hover {
+    cursor: pointer;
+  }
+  #searchSubmit3:hover {
     cursor: pointer;
   }
 
@@ -130,4 +176,79 @@ html {
 .item6 {
   grid-column: 3/3;
   grid-row: 2/3;
+}
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-image: linear-gradient(to right, #2E3192, #E4EfE9); /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.menuButton{
+  position: absolute;
+  left: 1em;
+  top: 1em;
+}
+#menuButton{
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+}
+/* Styles for the favorites list */
+#pokemonCardContainer {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin: 6rem 1rem;
+  color: black;
+}
+#centering{
+  justify-content: center;
+  text-align: center;
+  
 }

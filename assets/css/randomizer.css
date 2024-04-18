@@ -1,0 +1,7 @@
+.randomizer {
+    align-items: center;
+    flex-direction: column;
+}
+.randomizer.active {
+    display: flex;
+}

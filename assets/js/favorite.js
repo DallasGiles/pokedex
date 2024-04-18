@@ -3,7 +3,7 @@ const searchSubmitButton = document.getElementById("searchSubmit");
 // If the search button has an event listener, make the search buttons accept lowercase and fetch the pokemon data
 if (searchSubmitButton) {
   searchSubmitButton.addEventListener("click", function() {
-      const pokemonName = document.getElementById("searchInput").value.toLowerCase();
+       const pokemonName = document.getElementById("searchInput").value.toLowerCase();
       fetchPokemonData(pokemonName);
   });
 }
@@ -44,7 +44,7 @@ pokeCard.innerHTML = `
     <p>Type: ${pokemonData.types.map(type => type.type.name).join('/')}</p>
     <p>Generation: 1</p>
     <p>ID: ${pokemonData.id.toString().padStart(3, '0')}</p>
-    <ul id="statsList"></ul>
+    <ul id="stats${pokemonData.id}"></ul>
     <button id="toggleFavButton">
         <img class="visible" style="width:20px;height:20px" id="defaultImage" src="./assets/images/starFav.png" alt="Default Image">
     </button>
@@ -60,21 +60,47 @@ const imgElement = document.createElement("img");
 imgElement.src = pokemonSprite;
 imgElement.classList.add("pokemon-sprite");
 pokeCard.appendChild(imgElement);
+localStorage.setItem("pokemonData", JSON.stringify(pokemonData));
 
 // Display Pokémon stats
-const statsList = document.getElementById("statsList");
 statsData.forEach(stat => {
+    const statsList = pokeCard.querySelector(`#stats${pokemonData.id}`);
     const statItem = document.createElement("li");
     statItem.textContent = `${stat.stat.name}: ${stat.base_stat}`;
     statsList.appendChild(statItem);
 });
 
+// Function to remove the Pokemon data
+function removePokemon(pokemonData) {
+    // Get the locally stored Pokemon data
+    const storedPokemonData = JSON.parse(localStorage.getItem("pokemonData"));
+
+    // Check if the stored data exists and matches the data to be removed
+    if (storedPokemonData && storedPokemonData.name === pokemonData.name) {
+        // Remove the stored Pokemon data
+        localStorage.removeItem("pokemonData");
+    }
+}
+
 // Toggle button visibility based on the favorite button's class
 const toggleFavButton = document.getElementById("toggleFavButton");
-    toggleFavButton.addEventListener("click", function() {
-        toggleFavButton.children[0].src = toggleFavButton.children[0].src.split("/")[toggleFavButton.children[0].src.split("/").length - 1] === 'starFav.png' ? "./assets/images/starNoFav.png" : "./assets/images/starFav.png";
-        // Build an if statement to check if the image is the favorite image or not and if it is not favorited then remove the pokemon
-    });
+toggleFavButton.addEventListener("click", function() {
+    // Toggle the src attribute of the image between starFav.png and starNoFav.png
+    const imgElement = toggleFavButton.querySelector("img");
+    imgElement.src = imgElement.src.includes("starNoFav.png") ? "./assets/images/starNoFav.png" : "./assets/images/starFav.png";
+
+    // Check if the button is in favorited state (starFav.png is displayed)
+    const isFavorited = imgElement.src.includes("starFav.png");
+    
+    // Perform an action based on the toggle state
+    if (isFavorited) {
+        // Call a function to save the pokemon data
+        savedPokemon(pokemonData);
+    } else {
+        // Call a function to remove the pokemon data
+        removePokemon(pokemonData);
+    }
+});
 
 
   } catch (error) {
@@ -82,5 +108,20 @@ const toggleFavButton = document.getElementById("toggleFavButton");
   }
 }
 
-// where would I put the code to remove the pokemon when unfavorited?^line76^
-//
+function savedPokemon(pokemonData) {
+    const savedPokemon = JSON.parse(localStorage.getItem("savedPokemon")) || [];
+    localStorage.setItem("savedPokemon", JSON.stringify(pokemonData));
+}
+// where would I put the code to remove the pokemon when unfavorited?
+// Add event listener to the clearList button
+const clearListButton = document.getElementById("clearList");
+if (clearListButton) {
+    clearListButton.addEventListener("click", function() {
+        // Clear locally stored Pokémon data
+        localStorage.removeItem("pokemonData");
+
+        // Remove all Pokémon cards from the page
+        const cardContainer = document.getElementById("pokemonCardContainer");
+        cardContainer.innerHTML = ""; // Clear all child elements
+    });
+}
