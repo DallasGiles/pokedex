@@ -2,7 +2,7 @@
 Searching for pokemon hasn't ever been easier with our PokeDex. You can now randomly generate a pokemon to check out how they look, and you may also generate random programming jokes. We also have a generations page where you can see the pokemon sprites for the starter pokemon in the generation you choose. Then you can take a look at the favorites page where you can add a pokemon to the favorites list.
 
 ## Description
-Welcome to our pokedex!
+Welcome to our pokedex! You can search for pokemon and see their stats. You can see the starters for the 1st, 2nd, and 3rd generation. You can add pokemon you like to the favorites list, and you can randomly generate a programming joke.
 
 ## Badges
 Shields.io
@@ -23,9 +23,7 @@ Searching for a pokemon: #
 
 Randomly generating a pokemon: #
 
-Searching for a pokemon by generation: #
-
-Adding pokemon to your favorites list: #
+Adding pokemon to your favorites list: You can add your pokemon to the favorites list using the API found on https://pokeapi.co/docs/v2. You can also remove favorited pokemon either by clicking the favorite toggle button on the pokemon card or by clicking on the clear list button and removing all of the favorited pokemons at once.
 
 Randomly generating programming jokes: #
 
