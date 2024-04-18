@@ -1,8 +1,4 @@
 /* Styles for the favorite button items */
-.hidden {
-  display: none;
-}
-
 .visible {
   display: block;
 }
