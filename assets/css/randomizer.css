@@ -1,7 +1,18 @@
 .randomizer {
     align-items: center;
     flex-direction: column;
+    margin: 10px auto;
+    border: 5px ridge #ECBF1E;
+    width: fit-content;
+    padding: 15px 15px 0 15px;
+    background-color: #ffff;
+}
+.randomizer-text {
+    padding: 10px 0;
 }
 .randomizer.active {
     display: flex;
+}
+.pokemon-result-name:first-letter {
+    text-transform: uppercase;
 }
