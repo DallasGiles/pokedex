@@ -3,8 +3,13 @@ html {
   height: 100%;
   margin: 0;
   font-family: Arial;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
-
+.spacer {
+  flex: 1;
+}
 .tablink {
   background-color: #555;
   color: white;
@@ -252,4 +257,10 @@ html {
   justify-content: center;
   text-align: center;
   
+}
+.footer{
+  position: relative;
+    bottom: 0px;
+    width: 95%;
+    margin-left: 3%;
 }

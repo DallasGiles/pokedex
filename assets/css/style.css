@@ -146,3 +146,10 @@ hr.solid {
       transform: none;
     }
   }
+  .footer{
+    position: absolute;
+      bottom: 0px;
+      width: 95%;
+      margin-left: 3%;
+      background-color: #fbe3e8;
+  }
