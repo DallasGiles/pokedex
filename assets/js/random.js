@@ -3,6 +3,8 @@ var pokemonData;
 
 const getPokemon = document.getElementById("get-pokemon");
 var getPokemonResult = document.getElementById("get-pokemon-result");
+var getPokemonResultName = document.getElementById("pokemon-result-name");
+var getPokemonResultImage = document.getElementById("pokemon-result-image");
 
 async function setupTotalPokemonCnt() {
     const response = await fetch(
@@ -32,9 +34,11 @@ async function getPokemonDetails(id) {
     console.log(pokemonData);
 
     getPokemonResult.classList.remove("hidden");
+    getPokemonResult.classList.add("active");
 
-    getPokemonResult.innerText = pokemonData.name;
-    getPokemonResult.src = "image";
+    getPokemonResultName.innerText = pokemonData.name;
+    getPokemonResultImage.src = pokemonData.sprites.front_shiny;
+    getPokemonResultImage.setAttribute('alt', pokemonData.name);
 }
 
 function getRandomPokemon() {
