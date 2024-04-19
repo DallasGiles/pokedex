@@ -96,10 +96,50 @@ nav button {
   justify-content: center;
   margin: 1rem;
 }
-.footer{
-  position: relative;
-    bottom: 0px;
-    width: 95%;
-    margin-left: 3%;
-    background-color: lightblue;
+
+/* Media queries for mobile responsiveness */
+@media screen and (max-width: 768px) {
+  header {
+    padding: 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  nav {
+    padding: 0.5rem;
+  }
+
+  .wrapper {
+    padding: 0.5rem;
+  }
+
+  .label {
+    font-size: 0.75rem;
+  }
+
+  #searchInput {
+    padding: 0.25rem;
+  }
+
+  #searchSubmit {
+    padding: 0.25rem;
+  }
+
+  .favorites-list {
+    padding: 0.5rem;
+  }
+
+  .clearbtn {
+    padding: 0.5rem;
+  }
+
+  #popup-modal {
+    padding: 0.5rem;
+  }
+
+  footer {
+    padding: 0.5rem;
+  }
 }
