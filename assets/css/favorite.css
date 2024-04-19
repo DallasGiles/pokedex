@@ -7,7 +7,7 @@
 header {
   justify-content: center;
   align-items: center;
-  padding: 30px;
+  padding: 2rem;
   background-color: blue;
   color: black;
 }
@@ -27,7 +27,10 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #232323;
+}
+
+nav button {
+  margin: 0 10px;
 }
 
 .left {
@@ -92,4 +95,11 @@ nav {
   display: flex;
   justify-content: center;
   margin: 1rem;
+}
+.footer{
+  position: relative;
+    bottom: 0px;
+    width: 95%;
+    margin-left: 3%;
+    background-color: lightblue;
 }
