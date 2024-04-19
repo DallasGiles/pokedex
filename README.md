@@ -1,8 +1,8 @@
 # PokeDex
-Searching for pokemon hasn't ever been easier with our PokeDex. You can now randomly generate a pokemon to check out how they look, and you may also generate random programming jokes. We also have a generations page where you can see the pokemon sprites for the starter pokemon in the generation you choose. Then you can take a look at the favorites page where you can add a pokemon to the favorites list.
+Searching for pokemon hasn't ever been easier with our PokeDex.
 
 ## Description
-Welcome to our pokedex! You can search for pokemon and see their stats. You can search for pokemon on the generations page, and you can add pokemon you like to the favorites list, and you can randomly generate a programming joke.
+Our Pokedex is a consolidated website that contains several different generations of Pokemon. On our home page, you can get a random pokemon, and a random joke as well. In our generations page, you can search in our polished search base for any Pokemon that your heart desires. Hop on over to our favorites page, and you can search for and save various Pokemon for easier access later on.
 
 ## Badges
 Shields.io
@@ -11,12 +11,12 @@ Shields.io
 Link: <a href="https://DallasGiles.github.io/pokedex/" alt="live site link">Live Link</a>
 
 Home page screenshots:
-![img](./assets/images/#.png)
-![img](./assets/images/#.png)
+![img](./assets/images/Randomized1.png)
+![img](./assets/images/Randomized2.png)
 
 Generations page screenshots:
-![img](./assets/images/#.png)
-![img](./assets/images/#.png)
+![img](./assets/images/Sidebar.png)
+![img](./assets/images/Searched.png)
 
 Favorites page screenshots:
 ![img](./assets/images/LightNav.png)
