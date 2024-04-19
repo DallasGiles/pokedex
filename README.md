@@ -2,7 +2,7 @@
 Searching for pokemon hasn't ever been easier with our PokeDex. You can now randomly generate a pokemon to check out how they look, and you may also generate random programming jokes. We also have a generations page where you can see the pokemon sprites for the starter pokemon in the generation you choose. Then you can take a look at the favorites page where you can add a pokemon to the favorites list.
 
 ## Description
-Welcome to our pokedex! You can search for pokemon and see their stats. You can see the starters for the 1st, 2nd, and 3rd generation. You can add pokemon you like to the favorites list, and you can randomly generate a programming joke.
+Welcome to our pokedex! You can search for pokemon and see their stats. You can search for pokemon on the generations page, and you can add pokemon you like to the favorites list, and you can randomly generate a programming joke.
 
 ## Badges
 Shields.io
@@ -19,13 +19,8 @@ Generations page screenshots:
 ![img](./assets/images/#.png)
 
 Favorites page screenshots:
-![img](./assets/images/Navigation.png)
-![img](./assets/images/Darkmode.png)
-![img](./assets/images/Searched.png)
-![img](./assets/images/Favorited.png)
-![img](./assets/images/PageRefresh1.png)
-![img](./assets/images/ClearList.png)
-![img](./assets/images/PageRefresh2.png)
+![img](./assets/images/LightNav.png)
+![img](./assets/images/DarkClear.png)
 
 ## Installation
 N/A
@@ -58,6 +53,8 @@ Bootcamp Spot. (04/11/2024). https://bootcampspot.com/
 W3Schools Online Web Tutorials. (04/11/2024). https://www.w3schools.com/ 
 
 Chatgpt. ChatGPT. (04/11/2024). https://openai.com/chatgpt
+
+Themesberg. (n.d.-a). Flowbite - tailwind CSS Component Library. flowbite.com. https://flowbite.com/docs/getting-started/introduction/ 
 
 • Please note: While ChatGPT was utilized to generate dialog content for the README file, it was not involved in the generation of any code, HTML edits, CSS edits, or other assets within the repository apart from this README specifically.
 
