@@ -96,3 +96,10 @@ nav button {
   justify-content: center;
   margin: 1rem;
 }
+.footer{
+  position: relative;
+    bottom: 0px;
+    width: 95%;
+    margin-left: 3%;
+    background-color: lightblue;
+}
