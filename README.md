@@ -35,11 +35,7 @@ Adding pokemon to your favorites list: You can add your pokemon to the favorites
 Randomly generating programming jokes: #
 
 ## Support
-People who supported this project were DallasGiles, bwater47, Cherbear01, and OliviaRod. You can contact us through our github profiles.
-Link: <a href="https://github.com/DallasGiles" alt="GitHub Link">GitHub profile link</a>
-Link: <a href="https://github.com/bwater47" alt="GitHub Link">GitHub profile link</a>
-Link: <a href="https://github.com/Cherbear01" alt="GitHub Link">GitHub profile link</a>
-Link: <a href="https://github.com/OliviaRod" alt="GitHub Link">GitHub profile link</a>
+People who supported this project were DallasGiles Link: <a href="https://github.com/DallasGiles" alt="GitHub Link">GitHub profile link</a>, bwater47 Link: <a href="https://github.com/bwater47" alt="GitHub Link">GitHub profile link</a>, Cherbear01 Link: <a href="https://github.com/Cherbear01" alt="GitHub Link">GitHub profile link</a>, and OliviaRod Link: <a href="https://github.com/OliviaRod" alt="GitHub Link">GitHub profile link</a>. You can contact us through our github profiles.
 
 ## Roadmap
 N/A
