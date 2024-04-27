@@ -209,12 +209,112 @@ function renderSavedPokemon() {
   });
 }
 
+let pokemonListVisible = false;
+
+// Function to toggle the visibility of the Pokémon list
+function togglePokemonList() {
+  const pokemonList = document.getElementById("pokemonList");
+  if (pokemonListVisible) {
+    pokemonList.style.display = "none"; // Hide the list
+  } else {
+    displayPokemonList();
+    pokemonList.style.display = "block"; // Show the list
+  }
+  pokemonListVisible = !pokemonListVisible; // Toggle the flag
+}
+
+// Function to toggle the visibility of the Pokémon list
+function togglePokemonList() {
+  const pokemonList = document.getElementById("pokemonList");
+  if (pokemonList.style.display === "none") {
+    pokemonList.style.display = "block"; // Show the list
+  } else {
+    pokemonList.style.display = "none"; // Hide the list
+  }
+}
+
+// Function to fetch Pokémon data and render a Pokémon card
+async function fetchAndRenderPokemon(pokemonName) {
+  try {
+    // Fetch Pokémon details
+    const response = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
+    );
+    // If the response is not ok, throw an error
+    if (!response.ok) {
+      throw new Error("Could not fetch Pokémon details");
+    }
+    // Local variable to store the response data for pokemonData so it can be extracted
+    const pokemonData = await response.json();
+
+    // Create a card element
+    const pokeCard = document.createElement("div");
+
+    // Apply styles to the card element
+    pokeCard.style.display = "inline-block";
+    pokeCard.style.margin = "10px";
+    pokeCard.style.padding = "10px";
+    pokeCard.style.backgroundColor = "#f9f9f9";
+    pokeCard.style.border = "1px solid #ccc";
+    pokeCard.style.borderRadius = "5px";
+    pokeCard.style.width = "200px";
+    // Set the card ID based on the Pokémon ID
+    pokeCard.id = `pokemonCard${pokemonData.id}`;
+
+    const capitalize = (string) => {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    };
+
+    // HTML content for the card with the Pokémon details which are extracted from the pokemonData variable
+    pokeCard.innerHTML = `
+            <p>Name: ${capitalize(pokemonData.name)}</p>
+            <p>Type: ${capitalize(
+              pokemonData.types.map((type) => type.type.name).join("/")
+            )}</p>
+            <p>Generation: 1</p>
+            <p>ID: ${pokemonData.id.toString().padStart(3, "0")}</p>
+        `;
+
+    // Append the card to the Pokémon list container
+    const pokemonListContainer = document.getElementById("pokemonList");
+    pokemonListContainer.appendChild(pokeCard);
+  } catch (error) {
+    console.error("Error fetching Pokémon data:", error);
+  }
+}
+
+// Event listener for "More Pokémon" button
+const morePokemonButton = document.getElementById("morePokemonButton");
+if (morePokemonButton) {
+  morePokemonButton.addEventListener("click", async function () {
+    try {
+      const response = await fetch(
+        "https://pokeapi.co/api/v2/pokemon?limit=40"
+      ); // Fetch Pokémon data
+      const data = await response.json(); // Convert response to JSON
+      const pokemonNames = data.results.map((pokemon) => pokemon.name); // Extract Pokémon names
+
+      // Clear the Pokemon list container
+      const pokemonListContainer = document.getElementById("pokemonList");
+      pokemonListContainer.innerHTML = "";
+
+      // Fetch and render each Pokémon
+      pokemonNames.forEach((name) => fetchAndRenderPokemon(name));
+
+      // Toggle the visibility of the Pokemon list
+      togglePokemonList();
+    } catch (error) {
+      console.error("Error fetching Pokémon data:", error);
+    }
+  });
+}
+
 // Add event listener to window load event
 // window.addEventListener("load", function () {
-  // Render saved Pokemon on page load
+// Render saved Pokemon on page load
 //   renderSavedPokemon();
 // });
-  /* Set the width of the side navigation to 250px */
+/* Set the width of the side navigation to 250px */
 // function openNav() {
 //   document.getElementById("mySidenav").style.width = "250px";
 // }
@@ -241,7 +341,7 @@ function renderSavedPokemon() {
 //   const pokemonData1 = await responseGen1.json();
 //   const statsData1 = pokemonData1.stats;
 //   console.log(statsData1);
-//   console.log(pokemonData1); 
+//   console.log(pokemonData1);
 
 //   function createPokecard1(){
 //     const pokeCard1 = document.createElement("div");
@@ -254,7 +354,6 @@ function renderSavedPokemon() {
 //     pokeCard1.style.border = "2px solid #111";
 //     pokeCard1.style.borderRadius = "5px";
 //     pokeCard1.style.width = "200px";
-    
 
 //     pokeCard1.innerHTML = `
 //         <p>Name: ${pokemonData1.name}</p>
@@ -272,7 +371,6 @@ function renderSavedPokemon() {
 // imgElement.src = pokemonSprite;
 // imgElement.classList.add("pokemon-sprite");
 // pokeCard1.appendChild(imgElement);
-
 
 // //
 // statsData1.forEach(stat=> {
