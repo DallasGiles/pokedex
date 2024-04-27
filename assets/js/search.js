@@ -66,6 +66,9 @@ async function fetchPokemonData(pokemonName, isFavorited) {
     }
     // Local variable to store the response data for pokemonData so it can be extracted
     const pokemonData = await response.json();
+    
+    // Extract version name from game_indices array
+    const versionName = pokemonData.game_indices[0].version.name;
 
     // Local variable to store the response data for statsData using the pokemonData variable to extract the stats
     const statsData = pokemonData.stats;
@@ -97,7 +100,7 @@ async function fetchPokemonData(pokemonName, isFavorited) {
       <p>Type: ${capitalize(
         pokemonData.types.map((type) => type.type.name).join("/")
       )}</p>
-      <p>Generation: 1</p>
+      <p>Version: ${capitalize(versionName)}</p>
       <p>ID: ${pokemonData.id.toString().padStart(3, "0")}</p>
       <ul id="stats${pokemonData.id}"></ul>
       <button id="toggleFavButton_${pokemonData.id}">
@@ -173,27 +176,27 @@ function savedPokemon(pokemonData) {
   localStorage.setItem("savedPokemon", JSON.stringify(savedPokemon));
 }
 
-// Add event listener to the clearList button
-const clearListButton = document.getElementById("clearList");
-if (clearListButton) {
-  clearListButton.addEventListener("click", function () {
-    // Remove the savedPokemon key from local storage
-    localStorage.removeItem("savedPokemon");
+// // Add event listener to the clearList button
+// const clearListButton = document.getElementById("clearList");
+// if (clearListButton) {
+//   clearListButton.addEventListener("click", function () {
+//     // Remove the savedPokemon key from local storage
+//     localStorage.removeItem("savedPokemon");
 
-    // Retrieve all keys from local storage
-    const keys = Object.keys(localStorage);
+//     // Retrieve all keys from local storage
+//     const keys = Object.keys(localStorage);
 
-    // Filter out keys that start with "pokemon_"
-    const pokemonKeys = keys.filter((key) => key.startsWith("pokemon_"));
+//     // Filter out keys that start with "pokemon_"
+//     const pokemonKeys = keys.filter((key) => key.startsWith("pokemon_"));
 
-    // Remove each pokemon data from local storage
-    pokemonKeys.forEach((key) => localStorage.removeItem(key));
+//     // Remove each pokemon data from local storage
+//     pokemonKeys.forEach((key) => localStorage.removeItem(key));
 
-    // Remove all Pokémon cards from the page
-    const cardContainer = document.getElementById("pokemonCardContainer");
-    cardContainer.innerHTML = ""; // Clear all child elements
-  });
-}
+//     // Remove all Pokémon cards from the page
+//     const cardContainer = document.getElementById("pokemonCardContainer");
+//     cardContainer.innerHTML = ""; // Clear all child elements
+//   });
+// }
 
 function renderSavedPokemon() {
   // Retrieve saved Pokemon from local storage
@@ -214,20 +217,8 @@ let pokemonListVisible = false;
 // Function to toggle the visibility of the Pokémon list
 function togglePokemonList() {
   const pokemonList = document.getElementById("pokemonList");
-  if (pokemonListVisible) {
-    pokemonList.style.display = "none"; // Hide the list
-  } else {
-    displayPokemonList();
-    pokemonList.style.display = "block"; // Show the list
-  }
-  pokemonListVisible = !pokemonListVisible; // Toggle the flag
-}
-
-// Function to toggle the visibility of the Pokémon list
-function togglePokemonList() {
-  const pokemonList = document.getElementById("pokemonList");
   if (pokemonList.style.display === "none") {
-    pokemonList.style.display = "block"; // Show the list
+    pokemonList.style.display = "flex"; // Show the list
   } else {
     pokemonList.style.display = "none"; // Hide the list
   }
@@ -240,12 +231,17 @@ async function fetchAndRenderPokemon(pokemonName) {
     const response = await fetch(
       `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
     );
+    
     // If the response is not ok, throw an error
     if (!response.ok) {
       throw new Error("Could not fetch Pokémon details");
     }
+    
     // Local variable to store the response data for pokemonData so it can be extracted
     const pokemonData = await response.json();
+    
+    // Extract version name from game_indices array
+    const versionName = pokemonData.game_indices[0].version.name;
 
     // Create a card element
     const pokeCard = document.createElement("div");
@@ -258,6 +254,7 @@ async function fetchAndRenderPokemon(pokemonName) {
     pokeCard.style.border = "1px solid #ccc";
     pokeCard.style.borderRadius = "5px";
     pokeCard.style.width = "200px";
+    
     // Set the card ID based on the Pokémon ID
     pokeCard.id = `pokemonCard${pokemonData.id}`;
 
@@ -265,15 +262,15 @@ async function fetchAndRenderPokemon(pokemonName) {
       return string.charAt(0).toUpperCase() + string.slice(1);
     };
 
-    // HTML content for the card with the Pokémon details which are extracted from the pokemonData variable
+    // HTML content for the card with the Pokémon details and version name
     pokeCard.innerHTML = `
-            <p>Name: ${capitalize(pokemonData.name)}</p>
-            <p>Type: ${capitalize(
-              pokemonData.types.map((type) => type.type.name).join("/")
-            )}</p>
-            <p>Generation: 1</p>
-            <p>ID: ${pokemonData.id.toString().padStart(3, "0")}</p>
-        `;
+      <p>Name: ${capitalize(pokemonData.name)}</p>
+      <p>Type: ${capitalize(
+        pokemonData.types.map((type) => type.type.name).join("/")
+      )}</p>
+      <p>Version: ${capitalize(versionName)}</p>
+      <p>ID: ${pokemonData.id.toString().padStart(3, "0")}</p>
+    `;
 
     // Append the card to the Pokémon list container
     const pokemonListContainer = document.getElementById("pokemonList");
@@ -282,6 +279,7 @@ async function fetchAndRenderPokemon(pokemonName) {
     console.error("Error fetching Pokémon data:", error);
   }
 }
+
 
 // Event listener for "More Pokémon" button
 const morePokemonButton = document.getElementById("morePokemonButton");

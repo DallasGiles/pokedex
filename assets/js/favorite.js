@@ -55,6 +55,9 @@ async function fetchPokemonData(pokemonName, isFavorited) {
     // Local variable to store the response data for pokemonData so it can be extracted
     const pokemonData = await response.json();
 
+    // Local variable to store the response data for versionName using the pokemonData variable to extract the version name
+    const versionName = pokemonData.game_indices[0].version.name;
+
     // Local variable to store the response data for statsData using the pokemonData variable to extract the stats
     const statsData = pokemonData.stats;
 
@@ -85,7 +88,7 @@ async function fetchPokemonData(pokemonName, isFavorited) {
       <p>Type: ${capitalize(
         pokemonData.types.map((type) => type.type.name).join("/")
       )}</p>
-      <p>Generation: 1</p>
+      <p>Version: ${capitalize(versionName)}</p>
       <p>ID: ${pokemonData.id.toString().padStart(3, "0")}</p>
       <ul id="stats${pokemonData.id}"></ul>
       <button id="toggleFavButton_${pokemonData.id}">
