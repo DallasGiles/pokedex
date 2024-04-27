@@ -11,16 +11,16 @@ Shields.io
 Link: <a href="https://DallasGiles.github.io/pokedex/" alt="live site link">Live Link</a>
 
 Home page screenshots:
-![img](./assets/images/Randomized1.png)
-![img](./assets/images/Randomized2.png)
+![img](./assets/images/Home1.png)
+![img](./assets/images/Home2.png)
 
 Generations page screenshots:
-![img](./assets/images/Sidebar.png)
-![img](./assets/images/Searched.png)
+![img](./assets/images/Search1.png)
+![img](./assets/images/Search2.png)
 
 Favorites page screenshots:
-![img](./assets/images/LightNav.png)
-![img](./assets/images/DarkClear.png)
+![img](./assets/images/Favorite1.png)
+![img](./assets/images/Favorite2.png)
 
 ## Installation
 N/A
