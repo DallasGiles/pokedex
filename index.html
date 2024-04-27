@@ -4,6 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  </script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="./assets/css/style.css">
@@ -11,24 +19,52 @@
   <title>Pokedex</title>
 </head>
 
-<body id="grad">
-  <header>
-    <h1>Pokedex</h1>
+<body class="bg-gray-300 dark:bg-gray-800">
+  <header class="bg-yellow-300 dark:bg-red-800">
+    <h1 class="text-3xl"><strong class="font-semibold text-white dark:text-white">Pokedex</strong></h1>
   </header>
-  <div class="topnav">
-
-    <div class="topnav-centered">
-      <a href="index.html">Home</a>
+  <!-- Navigation bar with link to the generations page-->
+  <nav class="bg-yellow-200 dark:bg-red-600">
+    <!-- Dropdown button -->
+    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
+      class="text-white bg-purple-900 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-red-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      type="button">📄
+      Pages<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+        viewBox="0 0 10 6">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+      </svg>
+    </button>
+    <button id="theme-toggle" type="button"
+      class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+      <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+      </svg>
+      <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+          fill-rule="evenodd" clip-rule="evenodd"></path>
+      </svg>
+    </button>
+    <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+      <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+        <li>
+          <a href="index.html"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Home</a>
+        </li>
+        <li>
+          <a href="generation.html"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Generations</a>
+        </li>
+        <li>
+          <a href="favorite.html"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Favorites</a>
+        </li>
+      </ul>
     </div>
-
-    <a href="generation.html">Generations</a>
-
-    <div class="topnav-right">
-      <a href="favorite.html">Favorites</a>
-    </div>
-  </div>
-
-<!-- <div class="sprite-div">
+  </nav>
+  <!-- <div class="sprite-div">
   <div class="wrapper">
     <div class="label">Search for your pokemon here</div>
     <div class="searchBar">
@@ -42,46 +78,46 @@
     </div>
   </div>
 </div> -->
-<div class="jokeBox">
-  <p id="jokeText"></p>
-  <button id="jokeButton">Random Joke</button>
-</div>
+  <div class="jokeBox">
+    <p id="jokeText"></p>
+    <button id="jokeButton">Random Joke</button>
+  </div>
 
-<!-- This was test code to see if the pokemon api was working -->
-<!-- <div class="sprite-div">
+  <!-- This was test code to see if the pokemon api was working -->
+  <!-- <div class="sprite-div">
   <input type="text" id="pokemonName" placeholder="Enter Pokemon Name">
     <img src="" alt="" id="pokemonSprite" style="display:block">
   </div> -->
 
   <div class="random-div">
-  
-    <h2>
+
+    <h2 class="text-gray-900 dark:text-white">
       Pokemon randomizer
     </h2>
-  </br>
+    </br>
     <button id="get-pokemon" class="randomButton">Randomize</button>
-    <p class="randomizer-text">Get a random pokemon here:</p>
+    <p class="randomizer-text text-gray-900 dark:text-white">Get a random pokemon here:</p>
     <div class="randomizer hidden" id="get-pokemon-result">
       <span id="pokemon-result-name" class="pokemon-result-name"></span>
       <img src="" width="96" height="96" id="pokemon-result-image" alt="">
     </div>
   </div>
 
+  <!--Footer-->
   <div class="pb-1">
     <footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-900">
-        <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a
-                    href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
-            </span>
-            <ul
-                class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
-                <li>
-                    <a href="https://github.com/DallasGiles/pokedex.git" class="hover:underline">Github</a>
-                </li>
-            </ul>
-        </div>
+      <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://flowbite.com/"
+            class="hover:underline">Flowbite™</a>. All Rights Reserved.
+        </span>
+        <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+          <li>
+            <a href="https://github.com/DallasGiles/pokedex.git" class="hover:underline">Github</a>
+          </li>
+        </ul>
+      </div>
     </footer>
-</div>
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
   <script src="./assets/js/script.js"></script>
   <script src="./assets/js/random.js"></script>
