@@ -244,34 +244,3 @@ nav button {
     transform: none;
   }
 } */
-
-/* Media queries for mobile responsiveness */
-@media screen and (max-width: 768px) {
-  header {
-    padding: 0.5rem;
-  }
-
-  h1 {
-    font-size: 1.25rem;
-  }
-
-  nav {
-    padding: 0.5rem;
-  }
-
-  .wrapper {
-    padding: 0.5rem;
-  }
-
-  .label {
-    font-size: 0.75rem;
-  }
-
-  #popup-modal {
-    padding: 0.5rem;
-  }
-
-  footer {
-    padding: 0.5rem;
-  }
-}
