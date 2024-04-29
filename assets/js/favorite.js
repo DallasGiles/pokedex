@@ -69,7 +69,7 @@ async function fetchPokemonData(pokemonName, isFavorited) {
     pokeCard.style.margin = "10px";
     pokeCard.style.padding = "10px";
     pokeCard.style.backgroundColor = "#f9f9f9";
-    pokeCard.style.border = "1px solid #ccc";
+    pokeCard.style.border = "5px ridge #ECBF1E";
     pokeCard.style.borderRadius = "5px";
     pokeCard.style.width = "200px";
     // Set the card ID based on the Pokémon ID
