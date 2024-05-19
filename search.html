@@ -14,20 +14,21 @@
   </script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/reset.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="./assets/css/randomizer.css">
-  <title>Pokedex</title>
+  <link rel="stylesheet" href="./assets/css/button.css">
+  <link rel="stylesheet" href="./assets/css/search.css">
+  <title>Generations</title>
 </head>
 
 <body class="bg-gray-300 dark:bg-gray-800">
-  <header class="bg-yellow-300 dark:bg-red-800">
+  <header class="bg-green-700 dark:bg-red-800">
     <h1 class="text-4xl"><strong class="font-semibold text-white dark:text-white">Pokedex</strong></h1>
   </header>
+
   <!-- Navigation bar with link to the generations page-->
-  <nav class="bg-yellow-200 dark:bg-red-600">
+  <nav class="bg-green-500 dark:bg-red-600">
     <!-- Dropdown button -->
     <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
-      class="text-white bg-purple-900 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-red-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      class="text-white bg-pink-500 hover:bg-pink-200 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-red-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
       type="button">📄
       Pages<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
         viewBox="0 0 10 6">
@@ -64,9 +65,24 @@
       </ul>
     </div>
   </nav>
-  <!-- <div class="sprite-div">
+  <!-- <section class="content">
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">Home</a>
+    <a href="favorite.html">Favorites</a>
+    </div> -->
+
+  <!-- <div>
+    <button class="menuButton"  onclick="openNav()">
+      <div id="menuButton"></div>
+      <div id="menuButton"></div>
+      <div id="menuButton"></div>
+      </button>
+    </br> -->
+  <!-- <h1 id="centering" >Search for any pokemon here !!!</h1> -->
+
   <div class="wrapper">
-    <div class="label">Search for your pokemon here</div>
+    <div class="label text-gray-900 dark:text-white">Search for your pokemon here</div>
     <div class="searchBar">
       <input id="searchInput" type="text" name="searchInput" placeholder="Search" value="" />
       <button id="searchSubmit" type="submit" name="searchSubmit">
@@ -77,31 +93,18 @@
       </button>
     </div>
   </div>
-</div> -->
-  <div class="jokeBox">
-    <p id="jokeText"></p>
-    <button id="jokeButton">Random Joke</button>
+  <!--Pokemon card container-->
+  <div id="pokemonCardContainer">
+  </div>
+  <div class="flex justify-center">
+    <button
+      class="text-white font-bold py-2 px-4 rounded bg-pink-500 hover:bg-pink-200 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-red-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      id="morePokemonButton">More Pokemon</button>
+  </div>
+  <div id="pokemonList" style="display: none; flex-wrap: wrap; justify-content: center;">
+    <!-- Pokémon cards will be dynamically generated here -->
   </div>
 
-  <!-- This was test code to see if the pokemon api was working -->
-  <!-- <div class="sprite-div">
-  <input type="text" id="pokemonName" placeholder="Enter Pokemon Name">
-    <img src="" alt="" id="pokemonSprite" style="display:block">
-  </div> -->
-
-  <div class="random-div">
-
-    <h2 class="text-gray-900 dark:text-white">
-      Pokemon randomizer
-    </h2>
-    </br>
-    <button id="get-pokemon" class="randomButton">Randomize</button>
-    <p class="randomizer-text text-gray-900 dark:text-white">Get a random pokemon here:</p>
-    <div class="randomizer hidden" id="get-pokemon-result">
-      <span id="pokemon-result-name" class="pokemon-result-name"></span>
-      <img src="" width="96" height="96" id="pokemon-result-image" alt="">
-    </div>
-  </div>
 
   <!--Footer-->
   <div class="pb-1">
@@ -118,10 +121,9 @@
       </div>
     </footer>
   </div>
+  </section>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-  <script src="./assets/js/script.js"></script>
-  <script src="./assets/js/random.js"></script>
-  <script src="./assets/js/joke.js"></script>
+  <script src="./assets/js/search.js"></script>
 </body>
 
 </html>

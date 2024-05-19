@@ -1,26 +1,158 @@
+/* Universal style for the page*/
 * {
   margin: 0;
   padding: 0;
 }
+/* Styles for the header */
 header {
   justify-content: center;
-  text-align: center;
-  padding: 30px;
-  /* background-image: linear-gradient(to right, #009245  , #FCEE21); */
-  background-color: #fbe3e8;
+  align-items: center;
+  padding: 2rem;
+  background-color: blue;
   color: black;
+}
+
+h1 {
+  text-align: center;
+  color: black;
+}
+
+h1 a {
+  color: black;
+  text-decoration: none;
+}
+/* Styles for the navigation bar */
+nav {
+  padding: 14px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav button {
+  margin: 0 10px;
+}
+
+.left {
+  float: none;
+}
+/* Styles for the random button */
+.sprite-div {
+  text-align: center;
+}
+#pokemonSprite {
+  justify-content: center;
+  text-align: center;
+  margin-left: 450px;
+}
+
+.random-div {
+  justify-content: center;
+  text-align: center;
+  margin: 25px;
+  padding: 5px;
+}
+
+.randomButton {
+  background-color: white;
+  color: black;
+  border: 3px solid #fbe3e8;
+  padding: 12px 28px;
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.randomButton:hover {
+  background-color: lightgrey;
+  color: black;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+/* Joke styling section */
+.jokeBox {
+  background-image: linear-gradient(to bottom right, red, yellow);
+  margin-top: 1rem;
+  width: 50%;
+  height: 50%;
+  padding: 90px 50px;
+  border: 1px solid yellow;
+  box-sizing: border-box;
+  position: relative;
+  left: 25%;
+}
+
+#jokeText {
+  font-size: 16px;
+  color: black;
+  text-align: center;
+}
+
+#jokeButton {
+  display: block;
+  margin: 1rem auto;
+  background-color: yellow;
+  width: 50%;
+  border: 1px solid black;
+  padding: 15px 32px;
+}
+
+#jokeButton:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    padding: 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  nav {
+    padding: 0.5rem;
+  }
+
+  .wrapper {
+    padding: 0.5rem;
+  }
+
+  .label {
+    font-size: 0.75rem;
+  }
+  .jokeBox {
+    width: 90%;
+    padding: 60px 30px; 
+    left: 5%;
+  }
+
+  #jokeText {
+    font-size: 14px;
+  }
+
+  #jokeButton {
+    width: 70%;
+  }
+
+  #popup-modal {
+    padding: 0.5rem;
+  }
+
+  footer {
+    padding: 0.5rem;
+  }
 }
 /* gradient backgrounds*/
 
-#grad {
+/* #grad {
   /*background-image: linear-gradient(to right, #009245  , #FCEE21); */
-  background-color: #ebf6f5;
-}
+/* background-color: #ebf6f5;
+} */
 
-.topnav {
+/* .topnav {
     position: relative;
     /* background-image: linear-gradient(to right, #009245  , #FCEE21); */
-    background-color: #5cbdb9;
+/* background-color: #5cbdb9;
     overflow: hidden;
 
   }
@@ -50,33 +182,27 @@ header {
   }
   .topnav-right {
     float: right;
-  }
-.search-center{
-    text-align: center;
-    padding: 25px;
-}
-.wrapper {
+  } */
+
+/* .search-center {
+  text-align: center;
+  padding: 25px;
+} */
+/* .wrapper {
   width: 100%;
   max-width: 31.25rem;
   margin: 6rem auto;
-}
+} */
 
-.label {
-  font-size: .625rem;
+/* .label {
+  font-size: 0.625rem;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: +1.3px;
   margin-bottom: 1rem;
-}
+} */
 
-.searchBar {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.searchInput {
+/* .searchInput {
   width: 100%;
   height: 2.8rem;
   background: #f5f5f5;
@@ -85,9 +211,9 @@ header {
   border-radius: 1.625rem;
   padding: 0 3.5rem 0 1.5rem;
   font-size: 1rem;
-}
+} */
 
-.searchSubmit {
+/* .searchSubmit {
   width: 3.5rem;
   height: 2.8rem;
   margin-left: -3.5rem;
@@ -98,82 +224,23 @@ header {
 
 .searchSubmit:hover {
   cursor: pointer;
-}
-.sprite-div{
-  text-align: center;
-
-}
-#pokemonSprite{
-justify-content: center;
-text-align: center;
-margin-left: 450px;
-}
-
-.random-div{
-  justify-content: center;
-  text-align: center;
-  margin: 25px;
-  padding: 5px;
-}
+} */
 /*  SOLID LINE HERE     */
-hr.solid {
+/* hr.solid {
   border-top: 3px solid black;
-}
-.randomButton{
-  background-color: white;
-  color: black;
-  border: 3px solid #fbe3e8;
-  padding: 12px 28px;
-  transition-duration: 0.4s;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-}
-.randomButton:hover{
-  background-color: lightgrey;
-  color: black;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
+} */
 
-  @media screen and (max-width: 600px) {
-    .topnav a, .topnav-right {
-      float: none;
-      display: block;
-    }
-  
-    .topnav-centered a {
-      position: relative;
-      top: 0;
-      left: 0;
-      transform: none;
-    }
+/* @media screen and (max-width: 600px) {
+  .topnav a,
+  .topnav-right {
+    float: none;
+    display: block;
   }
 
-/* Joke styling section */
-.jokeBox {
-  background-image: linear-gradient(to bottom right, red, yellow);
-  width: 50%;
-  height: 50%;
-  padding: 90px 50px;
-  border: 1px solid yellow;
-  box-sizing: border-box;
-  position: relative;
-  left: 25%;
-}
-
-#jokeText {
-  font-size: 16px;
-  color: black;
-  text-align: center;
-}
-
-#jokeButton {
-  display: block;
-  margin: auto;
-  background-color: yellow;
-  width: 50%;
-  border: 1px solid black;
-  padding: 15px 32px;
-}
-
-#jokeButton:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
+  .topnav-centered a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+} */
